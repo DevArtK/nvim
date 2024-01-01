@@ -1,77 +1,115 @@
 return {
-	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-	},
-	config = function()
-		local lspconfig = require("lspconfig")
-		local lspui = require("lspconfig.ui.windows")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+    },
+    config = function()
+        local lspconfig = require("lspconfig")
+        local lspui = require("lspconfig.ui.windows")
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+        for type, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        end
 
-		-- Auto Formatting
-		vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+        -- Auto Formatting
+        vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
-		--LspInfo Borders
-		lspui.default_options.border = "double"
+        --LspInfo Borders
+        lspui.default_options.border = "double"
 
-		-- Managing language servers individually
-		-- pyright
-		lspconfig.pyright.setup({
-			capabilities = capabilities,
-		})
-		-- tsserver
-		lspconfig.tsserver.setup({
-			capabilities = capabilities,
-		})
-		-- rust_analyzer
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
-			-- Server-specific settings. See `:help lspconfig-setup`
-			settings = {
-				["rust-analyzer"] = {},
-			},
-		})
+        -- Managing language servers individually
+        -- Angular
+        lspconfig.angularls.setup({
+            capabilities = capabilities,
+        })
 
-		-- html
-		lspconfig.html.setup({
-			capabilities = capabilities,
-		})
-		-- configure emmet language server
-		lspconfig.emmet_ls.setup({
-			capabilities = capabilities,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
+        -- ANSIBLE
+        lspconfig.ansiblels.setup({
+            capabilities = capabilities,
+        })
 
-		-- Lua LS
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
+        -- AWK
+        lspconfig.awk_ls.setup({
+            capabilities = capabilities,
+        })
 
-		-- CSS LS
-		lspconfig.cssls.setup({
-			capabilities = capabilities,
-		})
+        -- BASH
+        lspconfig.bashls.setup({
+            capabilities = capabilities,
+        })
 
-		-- Tailwind
-		-- Support for tailwind auto completion
-		-- install the tailwind server : "sudo npm install -g @tailwindcss/language-server"
-		lspconfig.tailwindcss.setup({
-			capabilities = capabilities,
-		})
-	end,
+
+        -- DOCKER
+        lspconfig.dockerls.setup({
+            capabilities = capabilities,
+        })
+
+        -- DOCKER COMPOSE
+        lspconfig.docker_compose_language_service.setup({
+            capabilities = capabilities,
+        })
+
+        -- HASKELL
+        lspconfig.hls.setup({
+            capabilities = capabilities,
+        })
+
+        -- PYRIGHT
+        lspconfig.pyright.setup({
+            capabilities = capabilities,
+        })
+
+        -- TSSERVER
+        lspconfig.tsserver.setup({
+            capabilities = capabilities,
+        })
+
+        -- RUST_ANALYZER
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            -- Server-specific settings. See `:help lspconfig-setup`
+            settings = {
+                ["rust-analyzer"] = {},
+            },
+        })
+
+        -- HTML
+        lspconfig.html.setup({
+            capabilities = capabilities,
+        })
+        -- configure emmet language server
+        lspconfig.emmet_ls.setup({
+            capabilities = capabilities,
+            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+
+        -- LUA LS
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                },
+            },
+        })
+
+        -- CSS LS
+        lspconfig.cssls.setup({
+            capabilities = capabilities,
+        })
+
+        -- TAILWIND
+        -- Support for tailwind auto completion
+        -- install the tailwind server : "sudo npm install -g @tailwindcss/language-server"
+        lspconfig.tailwindcss.setup({
+            capabilities = capabilities,
+        })
+    end,
 }

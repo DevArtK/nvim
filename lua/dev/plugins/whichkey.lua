@@ -55,6 +55,14 @@ return {
                 f = { ":NvimTreeFocus<cr>", "NvimTreeFocus" },
                 h = { ":e ~/<cr>", "NvimTreeHome" },
             },
+
+            -- Split
+            p = {
+                name = "Split",
+                v = { ":vsplit<cr>", "Split Vertically" },
+                h = { ":split<cr>", "Split Vertically" },
+            },
+
             -- Telescope
             s = {
                 name = "Telescope",
@@ -64,12 +72,6 @@ return {
                 g = { ":Telescope live_grep theme=ivy<cr>", "Telescope live_grep" },
                 r = { ":Telescope resume theme=ivy<cr>", "Telescope resume" },
                 b = { ":Telescope buffers theme=ivy<cr>", "Telescope buffers" },
-            },
-            -- Split
-            p = {
-                name = "Split",
-                v = { ":vsplit<cr>", "Split Vertically" },
-                h = { ":split<cr>", "Split Vertically" },
             },
             -- Terminal
             t = {
