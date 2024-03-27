@@ -45,3 +45,21 @@ map('i', '<C-v>', '<C-r>*', opts)
 -- Center jumping to next/prev match
 map("n", "n", "nzz", opts)
 map("n", "N", "Nzz", opts)
+
+-- Move selected lines with shift+j or shift+k
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+-- Join line while keeping the cursor in the same position
+map("n", "J", "mzJ`z", opts)
+
+-- Keep cursor centred while scrolling up and down
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
+
+-- Next and previous instance of the highlighted letter
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
+
+-- Better paste (prevents new paste buffer)
+map("x", "<leader>p", [["_dP]], opts)

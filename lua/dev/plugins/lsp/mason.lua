@@ -25,12 +25,29 @@ return {
         -- mason-lspconfig
         mason_lspconfig.setup({
             ensure_installed = {
-                "lua_ls",
+                "autotools-language-server",
+                "angularls",
+                "ansiblels",
+                "awk_ls",
                 "cssls",
+                "dockerls",
+                "docker_compose_language_service",
+                "eslint",
+                "gradlels",
+                "html",
+                "htmx",
+                "hls",
+                "jqls",
+                "jsonls",
+                "terraformls",
+                "tflint",
+                "tsserver",
+                "nil_ls",
+                "jqls",
+                "kotlin",
+                "lua_ls",
                 "marksman",
-                'angularls',
-                'ansiblels',
-                'terraformls'
+                "yamlls"
             },
             -- auto installation
             automatic_installation = true,
@@ -44,7 +61,7 @@ return {
                 -- { "ansiblels" },
                 { 'ansible-language-server' },
                 { "autopep8" },
-                { "awkls" },
+                --{ "awkls" },
                 { 'bash-language-server' },
                 { 'black' },
                 { 'codelldb' },
@@ -68,6 +85,7 @@ return {
                 { 'stylua' },
                 { 'tailwindcss-language-server' },
                 { 'terraformls' },
+                { 'tflint' },
                 { 'typescript-language-server' },
                 { 'vim-language-server' },
                 { 'yamlls' }

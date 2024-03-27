@@ -46,6 +46,8 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
+vim.opt.smartindent = true
+
 
 -- Search
 vim.o.hlsearch = true
@@ -58,6 +60,8 @@ vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.o.mouse = "a"
 
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "#eba0ac" })
 
 -- Options based on filetypes
 -- markdown

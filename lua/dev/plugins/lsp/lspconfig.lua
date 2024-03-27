@@ -59,15 +59,39 @@ return {
             capabilities = capabilities,
         })
 
-        -- PYRIGHT
+        -- PYTHON
         lspconfig.pyright.setup({
             capabilities = capabilities,
         })
 
-        -- TSSERVER
+        -- JAVASCRIPT / TYPESCRIPT
         lspconfig.tsserver.setup({
             capabilities = capabilities,
         })
+
+        -- TERRAFORM
+        lspconfig.terraformls.setup({
+            cmd = { "terraform-ls", "serve" },
+            filetypes = { "hcl", "tf", "tfvars" },
+            capabilities = capabilities,
+            root_dir = lspconfig.util.root_pattern(".terraform", ".tf", "main.tf", "providers.tf", "tf"),
+            settings = {
+                terraform = {
+                    lsp = {
+                        format = true,
+                        codeLens = {
+                            enabled = true,
+                        },
+                    },
+                },
+            }
+        })
+        
+        -- TERRAFORM LINTER
+        -- lspconfig.tflint.setup({
+        --     capabilities = capabilities,
+        --     lspconfig.util.root_pattern(".terraform", ".git", ".tflint.hcl", '.tf')
+        -- })
 
         -- RUST_ANALYZER
         lspconfig.rust_analyzer.setup({
