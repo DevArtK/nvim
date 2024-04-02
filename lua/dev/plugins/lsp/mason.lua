@@ -25,7 +25,7 @@ return {
         -- mason-lspconfig
         mason_lspconfig.setup({
             ensure_installed = {
-                "autotools-language-server",
+                -- "autotools-language-server",
                 "angularls",
                 "ansiblels",
                 "awk_ls",
@@ -33,7 +33,7 @@ return {
                 "dockerls",
                 "docker_compose_language_service",
                 "eslint",
-                "gradlels",
+                -- "gradlels",
                 "html",
                 "htmx",
                 "hls",
@@ -44,7 +44,7 @@ return {
                 "tsserver",
                 "nil_ls",
                 "jqls",
-                "kotlin",
+                -- "kotlin",
                 "lua_ls",
                 "marksman",
                 "yamlls"

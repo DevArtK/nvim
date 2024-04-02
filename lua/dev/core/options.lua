@@ -79,3 +79,5 @@ vim.api.nvim_create_autocmd("ExitPre", {
     command = "set guicursor=a:ver90",
     desc = "Set cursor back to beam when leaving Neovim.",
 })
+
+require("kanagawa").load("dragon")
