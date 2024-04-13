@@ -56,29 +56,16 @@ return {
                 h = { ":e ~/<cr>", "NvimTreeHome" },
             },
 
-            -- Split
-            p = {
-                name = "Split",
-                v = { ":vsplit<cr>", "Split Vertically" },
-                h = { ":split<cr>", "Split Vertically" },
+            -- Code Formatting
+            F = {
+                name = "Code Formoat",
+                M = { ":lua vim.lsp.buf.format()<cr>", "Format code" },
             },
 
-            -- Telescope
-            s = {
-                name = "Telescope",
-                f = { ":Telescope find_files theme=ivy<cr>", "Telescope find_files" },
-                w = { ":Telescope current_buffer_fuzzy_find theme=ivy<cr>", "Fuzzy Find in File" },
-                o = { ":Telescope oldfiles theme=ivy<cr>", "Telescope oldfiles" },
-                g = { ":Telescope live_grep theme=ivy<cr>", "Telescope live_grep" },
-                r = { ":Telescope resume theme=ivy<cr>", "Telescope resume" },
-                b = { ":Telescope buffers theme=ivy<cr>", "Telescope buffers" },
-            },
-            -- Terminal
-            t = {
-                t = { ":ToggleTerm<cr>", "Split Below" },
-                f = { toggle_float, "Floating Terminal" },
-                l = { toggle_lazygit, "LazyGit" },
-            },
+            --[[ g = {
+                name = "Comment Line",
+                cc = { "" }
+            }, ]]
 
             -- Lsp Stuffs
             l = {
@@ -103,16 +90,35 @@ return {
                 N = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Go To Previous Diagnostic" },
             },
 
+            -- Split
+            p = {
+                name = "Split",
+                v = { ":vsplit<cr>", "Split Vertically" },
+                h = { ":split<cr>", "Split Vertically" },
+            },
+
+            -- Telescope
+            s = {
+                name = "Telescope",
+                f = { ":Telescope find_files theme=ivy<cr>", "Telescope find_files" },
+                w = { ":Telescope current_buffer_fuzzy_find theme=ivy<cr>", "Fuzzy Find in File" },
+                o = { ":Telescope oldfiles theme=ivy<cr>", "Telescope oldfiles" },
+                g = { ":Telescope live_grep theme=ivy<cr>", "Telescope live_grep" },
+                r = { ":Telescope resume theme=ivy<cr>", "Telescope resume" },
+                b = { ":Telescope buffers theme=ivy<cr>", "Telescope buffers" },
+            },
+            -- Terminal
+            t = {
+                t = { ":ToggleTerm<cr>", "Split Below" },
+                f = { toggle_float, "Floating Terminal" },
+                l = { toggle_lazygit, "LazyGit" },
+            },
+
             -- Tagbar for function list
             T = {
                 f = { ":TagbarToggle<cr>", "Functions List Tagbar" },
             },
 
-            -- Code Formatting
-            F = {
-                name = "Code Formoat",
-                M = { ":lua vim.lsp.buf.format()<cr>", "Format code" },
-            },
         }
 
         local opts = { prefix = "<leader>" }

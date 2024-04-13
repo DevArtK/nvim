@@ -81,3 +81,5 @@ vim.api.nvim_create_autocmd("ExitPre", {
 })
 
 require("kanagawa").load("dragon")
+
+vim.cmd [[highlight CursorLine ctermbg=235 guibg=#262626]]

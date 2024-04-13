@@ -15,7 +15,7 @@ return {
             },
 
             filters = {
-                dotfiles = true,
+                dotfiles = false,
             },
 
             renderer = {
