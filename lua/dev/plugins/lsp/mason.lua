@@ -42,7 +42,7 @@ return {
                 "terraformls",
                 "tflint",
                 "tsserver",
-                -- "nil_ls",
+                "nil_ls",
                 "jqls",
                 -- "kotlin",
                 "lua_ls",

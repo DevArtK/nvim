@@ -69,6 +69,11 @@ return {
             capabilities = capabilities,
         })
 
+        -- NIX
+        lspconfig.nil_ls.setup({
+            capabilities = capabilities,
+        })
+
         -- TERRAFORM
         lspconfig.terraformls.setup({
             cmd = { "terraform-ls", "serve" },
@@ -86,7 +91,7 @@ return {
                 },
             }
         })
-        
+
         -- TERRAFORM LINTER
         -- lspconfig.tflint.setup({
         --     capabilities = capabilities,
