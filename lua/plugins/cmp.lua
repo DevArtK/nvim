@@ -56,9 +56,11 @@ return {
             -- no, but seriously. please read `:help ins-completion`, it is really good!
             mapping = cmp.mapping.preset.insert {
                 -- select the [n]ext item
-                ['<c-n>'] = cmp.mapping.select_next_item(),
+                ['<tab>'] = cmp.mapping.select_next_item(),
+                -- ['<c-n>'] = cmp.mapping.select_next_item(),
                 -- select the [p]revious item
-                ['<c-p>'] = cmp.mapping.select_prev_item(),
+                ['<s-tab>'] = cmp.mapping.select_prev_item(),
+                -- ['<c-p>'] = cmp.mapping.select_prev_item(),
 
                 -- scroll the documentation window [b]ack / [f]orward
                 ['<c-b>'] = cmp.mapping.scroll_docs(-4),
@@ -67,13 +69,10 @@ return {
                 -- accept ([y]es) the completion.
                 --  this will auto-import if your lsp supports it.
                 --  this will expand snippets if the lsp sent a snippet.
-                ['<c-y>'] = cmp.mapping.confirm { select = true },
-
                 -- if you prefer more traditional completion keymaps,
                 -- you can uncomment the following lines
-                --['<cr>'] = cmp.mapping.confirm { select = true },
-                --['<tab>'] = cmp.mapping.select_next_item(),
-                --['<s-tab>'] = cmp.mapping.select_prev_item(),
+                ['<cr>'] = cmp.mapping.confirm { select = true },
+                -- ['<c-y>'] = cmp.mapping.confirm { select = true },
 
                 -- manually trigger a completion from nvim-cmp.
                 --  generally you don't need this, because nvim-cmp will display
