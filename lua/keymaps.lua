@@ -3,6 +3,13 @@
 
 -- clear highlights on search when pressing <esc> in normal mode
 --  see `:help hlsearch`
+--
+local function map(mode, l, r, opts)
+	opts = opts or {}
+	opts.buffer = bufnr
+	vim.keymap.set(mode, l, r, opts)
+end
+
 vim.keymap.set('n', '<esc>', '<cmd>nohlsearch<cr>')
 
 -- pressing 'jk' in insert mode switches to normal mode
@@ -47,3 +54,6 @@ vim.api.nvim_create_autocmd('textyankpost', {
         vim.highlight.on_yank()
     end,
 })
+
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm<cr>', { desc = '[T]oggle [T]erminal' })
+
