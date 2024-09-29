@@ -165,19 +165,24 @@ return {
         --  - settings (table): override the default settings passed when initializing the server.
         --        for example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
         local servers = {
-            -- clangd = {},
-            -- gopls = {},
-            -- pyright = {},
-            rust_analyzer = {},
-            -- ... etc. see `:help lspconfig-all` for a list of all the pre-configured lsps
-            --
-            -- some languages (like typescript) have entire language plugins that can be useful:
-            --    https://github.com/pmizio/typescript-tools.nvim
-            --
-            -- but for many setups, the lsp (`ts_ls`) will work just fine
-            ts_ls = {},
-            --
-
+            angularls = {},
+            ansiblels = {},
+            awk_ls = {},
+            bashls = {},
+            cssls = {},
+            denols = {},
+            dockerls = {},
+            docker_compose_language_service = {},
+            emmet_ls = {},
+            gradle_ls = {},
+            groovyls = {},
+            html = {},
+            htmx = {},
+            jdtls = {},
+            jedi_language_server = {},
+            json = {},
+            jqls = {},
+            kotlin_language_server = {},
             lua_ls = {
                 -- cmd = {...},
                 -- filetypes = { ...},
@@ -192,10 +197,31 @@ return {
                     },
                 },
             },
+            nextls = {},
+            nixd = {},
+
+
+
+            -- clangd = {},
+            -- gopls = {},
+            -- pyright = {},
+            rust_analyzer = {},
+            -- ... etc. see `:help lspconfig-all` for a list of all the pre-configured lsps
+            --
+            -- some languages (like typescript) have entire language plugins that can be useful:
+            --    https://github.com/pmizio/typescript-tools.nvim
+            --
+            -- but for many setups, the lsp (`ts_ls`) will work just fine
+            terraformls = {},
+            ts_ls = {},
+            sqlls = {},
+            yamlls = {}
         }
 
         if os_release and os_release:match("ID=nixos") then
             print("Your are on NixOS - have to install lsp servers manually")
+
+        -- If not using nixos, use mason to download LSPs
         else
 
             -- ensure the servers and tools above are installed
