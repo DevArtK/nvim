@@ -115,6 +115,6 @@ require 'keymaps'
 require 'lazy-bootstrap'
 
 -- [[ Plugins ]]
-require 'plugins'
+require 'plugins-lazy'
 
 -- vim: ts=4 sts=4 sw=4 et

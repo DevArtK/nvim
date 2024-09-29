@@ -1,0 +1,11 @@
+-- require('plugins.debug')
+-- require('plugins.indent_line')
+-- require('plugins.lint')
+-- -- auto brackets, quotes, etc
+-- require('plugins.autopairs')
+-- -- file explorer
+-- require('plugins.neo-tree')
+-- -- gitsigns recommend keymaps
+-- require('plugins.gitsigns')
+-- -- formatter
+-- require('plugins.conform')
