@@ -1,9 +1,9 @@
 -- Function to read and return the contents of a file
 local function read_file(path)
-    local file = io.open(path, "r")  -- Open the file in read mode
-    if not file then return nil end  -- Return nil if the file does not exist
-    local content = file:read("*a")  -- Read the entire file content
-    file:close()                     -- Close the file after reading
+    local file = io.open(path, "r") -- Open the file in read mode
+    if not file then return nil end -- Return nil if the file does not exist
+    local content = file:read("*a") -- Read the entire file content
+    file:close()                    -- Close the file after reading
     return content
 end
 
@@ -180,7 +180,7 @@ return {
             htmx = {},
             jdtls = {},
             jedi_language_server = {},
-            json = {},
+            jsonls = {},
             jqls = {},
             kotlin_language_server = {},
             lua_ls = {
@@ -198,7 +198,7 @@ return {
                 },
             },
             nextls = {},
-            nixd = {},
+            nil_ls = {},
 
 
 
@@ -221,9 +221,8 @@ return {
         if os_release and os_release:match("ID=nixos") then
             print("Your are on NixOS - have to install lsp servers manually")
 
-        -- If not using nixos, use mason to download LSPs
+            -- If not using nixos, use mason to download LSPs
         else
-
             -- ensure the servers and tools above are installed
             --  to check the current status of installed tools and/or manually install
             --  other tools, you can run
