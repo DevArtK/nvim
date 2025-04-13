@@ -111,36 +111,38 @@ return {
                 --    see `:help cursorhold` for information about when this is executed
                 --
                 -- when you move your cursor, the highlights will be cleared (the second autocommand).
+
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
-                if client and client.supports_method(vim.lsp.protocol.methods.textdocument_documenthighlight) then
-                    local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight',
-                        { clear = false })
-                    vim.api.nvim_create_autocmd({ 'cursorhold', 'cursorholdi' }, {
-                        buffer = event.buf,
-                        group = highlight_augroup,
-                        callback = vim.lsp.buf.document_highlight,
-                    })
 
-                    vim.api.nvim_create_autocmd({ 'cursormoved', 'cursormovedi' }, {
-                        buffer = event.buf,
-                        group = highlight_augroup,
-                        callback = vim.lsp.buf.clear_references,
-                    })
-
-                    vim.api.nvim_create_autocmd('lspdetach', {
-                        group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-                        callback = function(event2)
-                            vim.lsp.buf.clear_references()
-                            vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
-                        end,
-                    })
+                if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+                  local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+                  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                    buffer = event.buf,
+                    group = highlight_augroup,
+                    callback = vim.lsp.buf.document_highlight,
+                  })
+      
+                  vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+                    buffer = event.buf,
+                    group = highlight_augroup,
+                    callback = vim.lsp.buf.clear_references,
+                  })
+      
+                  vim.api.nvim_create_autocmd('LspDetach', {
+                    group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+                    callback = function(event2)
+                      vim.lsp.buf.clear_references()
+                      vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+                    end,
+                  })
                 end
+
 
                 -- the following code creates a keymap to toggle inlay hints in your
                 -- code, if the language server you are using supports them
                 --
                 -- this may be unwanted, since they displace some of your code
-                if client and client.supports_method(vim.lsp.protocol.methods.textdocument_inlayhint) then
+                if client and client.supports_method(vim.lsp.protocol.Methods.textdocument_inlayhint) then
                     map('<leader>th', function()
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
                     end, '[t]oggle inlay [h]ints')
@@ -175,13 +177,13 @@ return {
             docker_compose_language_service = {},
             emmet_ls = {},
             gradle_ls = {},
-            groovyls = {},
+            -- groovyls = {},
             html = {},
-            htmx = {},
+            -- htmx = {},
             jdtls = {},
             jedi_language_server = {},
             jsonls = {},
-            jqls = {},
+            -- jqls = {},
             kotlin_language_server = {},
             lua_ls = {
                 -- cmd = {...},
@@ -198,7 +200,7 @@ return {
                 },
             },
             nextls = {},
-            nil_ls = {},
+            -- nil_ls = {},
 
 
 
