@@ -1,4 +1,4 @@
-# #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -8,13 +8,13 @@ echo "🔍 Detecting OS..."
 install_debian() {
     echo "🟢 Debian/Ubuntu detected. Installing Neovim..."
     sudo apt update
-    sudo apt install -y neovim curl git python3-pip python3-venv software-properties-common
+    sudo apt install -y neovim curl git lazygit python3-pip python3-venv software-properties-common lazygitg
 }
 
 # Function to install on Fedora
 install_fedora() {
     echo "🟠 Fedora detected. Installing Neovim..."
-    sudo dnf install -y neovim curl git python3-pip python3-virtualenv
+    sudo dnf install -y neovim curl git lazygit python3-pip python3-virtualenv
 }
 
 # Function to install on macOS
@@ -27,7 +27,7 @@ install_macos() {
     fi
 
     brew update
-    brew install neovim git python
+    brew install neovim git lazygit python
 }
 
 # Detect OS and call the appropriate install function
@@ -52,7 +52,7 @@ case "$(uname)" in
 esac
 
 # Set up Python support
-echo "🐍 Setting up Python support for Neovim..."
-pip3 install --user --upgrade pynvim
+# echo "🐍 Setting up Python support for Neovim..."
+# pip3 install --user --upgrade pynvim
 
 echo "✅ Neovim and dependencies installed successfully!"

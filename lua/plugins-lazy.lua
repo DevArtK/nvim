@@ -20,7 +20,6 @@ require('lazy').setup({
     --
     -- use `opts = {}` to force a plugin to be loaded.
 
-
     -- note: plugins can also be configured to run lua code when they are loaded.
     --
     -- this is often very useful to both group configuration, as well as handle
@@ -36,8 +35,6 @@ require('lazy').setup({
     -- after the plugin has been loaded:
     --  config = function() ... end
 
-
-
     -- lsp plugins
     {
         -- `lazydev` configures lua lsp for your neovim config, runtime and plugins
@@ -52,8 +49,7 @@ require('lazy').setup({
         },
     },
 
-    { 'bilal2453/luvit-meta',     lazy = true },
-
+    { 'bilal2453/luvit-meta', lazy = true },
 
     -- { -- you can easily change to a different colorscheme.
     --     -- change the name of the colorscheme plugin below, and then
@@ -139,10 +135,10 @@ require('lazy').setup({
     --  here are some example plugins that i've included in the kickstart repository.
     --  uncomment any of the lines below to enable them (you will need to restart nvim).
 
-    require 'plugins.lsp', 
+    require 'plugins.lsp',
     require 'plugins.toggle_term', -- terminal
     require 'plugins.neo-tree', -- file explorer
-    require 'plugins.cmp',  -- auto completion
+    require 'plugins.cmp', -- auto completion
     require 'plugins.indent_line', -- indentation
     require 'plugins.autopairs', -- auto brackets
     require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
@@ -153,6 +149,7 @@ require('lazy').setup({
     require 'plugins.telescope', -- searching
     require 'plugins.conform', -- formatting
     require 'plugins.which-key', -- keymaps ui
+    require 'plugins.lazygit', -- git
 
     -- note: the import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    this is the easiest way to modularize your config.
@@ -161,26 +158,26 @@ require('lazy').setup({
     --    for additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
     { import = 'custom.plugins' },
 }, {
-        ui = {
-            -- if you are using a nerd font: set icons to an empty table which will use the
-            -- default lazy.nvim defined nerd font icons, otherwise define a unicode icons table
-            icons = vim.g.have_nerd_font and {} or {
-                cmd = '⌘',
-                config = '🛠',
-                event = '📅',
-                ft = '📂',
-                init = '⚙',
-                keys = '🗝',
-                plugin = '🔌',
-                runtime = '💻',
-                require = '🌙',
-                source = '📄',
-                start = '🚀',
-                task = '📌',
-                lazy = '💤 ',
-            },
+    ui = {
+        -- if you are using a nerd font: set icons to an empty table which will use the
+        -- default lazy.nvim defined nerd font icons, otherwise define a unicode icons table
+        icons = vim.g.have_nerd_font and {} or {
+            cmd = '⌘',
+            config = '🛠',
+            event = '📅',
+            ft = '📂',
+            init = '⚙',
+            keys = '🗝',
+            plugin = '🔌',
+            runtime = '💻',
+            require = '🌙',
+            source = '📄',
+            start = '🚀',
+            task = '📌',
+            lazy = '💤 ',
         },
-    })
+    },
+})
 
 -- the line beneath this is called `modeline`. see `:help modeline`
 -- vim: ts=4 sts=4 sw=4 et
