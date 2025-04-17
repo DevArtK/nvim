@@ -14,7 +14,7 @@ install_debian() {
 # Function to install on Fedora
 install_fedora() {
     echo "🟠 Fedora detected. Installing Neovim..."
-    sudo dnf install -y neovim curl git lazygit python3-pip python3-virtualenv
+    sudo dnf install -y neovim curl git lazygit git-delta python3-pip python3-virtualenv
 }
 
 # Function to install on macOS
@@ -27,7 +27,7 @@ install_macos() {
     fi
 
     brew update
-    brew install neovim git lazygit python
+    brew install neovim git lazygit git-delta python
 }
 
 # Detect OS and call the appropriate install function
@@ -56,3 +56,11 @@ esac
 # pip3 install --user --upgrade pynvim
 
 echo "✅ Neovim and dependencies installed successfully!"
+
+
+# Download the latest binary from GitHub
+# LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' | cut -d'"' -f4)
+# curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION#v}_Linux_x86_64.tar.gz"
+# tar xf lazygit.tar.gz lazygit
+# sudo install lazygit /usr/local/bin
+
